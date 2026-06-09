@@ -1,4 +1,4 @@
-package com.utn.frvm.prode_api.dtos.responcedto;
+package com.utn.frvm.prode_api.dtos.updateDto;
 
 import java.time.LocalDateTime;
 
@@ -11,7 +11,7 @@ import lombok.Data;
 
 @Data
 public class PartidoResponceDto {
-    private int idPartido;
+    
     private Equipo equipoLocal;
     private Equipo equipoVisitante;
     private int golesLocal;

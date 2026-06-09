@@ -1,6 +1,6 @@
 package com.utn.frvm.prode_api.models;
 
-import java.time.LocalDate;
+import java.time.LocalDateTime;
 
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
@@ -22,5 +22,5 @@ public class MiembroGrupo {
 
     private Usuario usuario;
     private Grupo grupo;
-    private LocalDate fechaIngreso;
+    private LocalDateTime fechaIngreso;
 }

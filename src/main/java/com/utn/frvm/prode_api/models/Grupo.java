@@ -24,5 +24,5 @@ public class Grupo {
     private Usuario creadorGrupo;
     private List<MiembroGrupo> miembros;
     private String codigoInvitacion;
-    private boolean estaActivo;
+    private boolean estaActivo = true;
 }

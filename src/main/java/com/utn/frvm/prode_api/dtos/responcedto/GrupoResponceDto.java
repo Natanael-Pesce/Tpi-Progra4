@@ -10,6 +10,7 @@ import lombok.Data;
 @Data
 public class GrupoResponceDto {
     
+    private int idGrupo;
     private String nombreGrupo;
     private Usuario creadorGrupo;
     private List<MiembroGrupo> miembros;

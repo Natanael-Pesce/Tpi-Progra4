@@ -1,4 +1,4 @@
-package com.utn.frvm.prode_api.dtos.responcedto;
+package com.utn.frvm.prode_api.dtos.responsedto;
 
 import java.time.LocalDateTime;
 
@@ -7,7 +7,7 @@ import com.utn.frvm.prode_api.utility.Resultado;
 import lombok.Data;
 
 @Data
-public class PrediccionResponceDto {
+public class PrediccionResponseDto {
     private int idPrediccion;
     private int usuarioId;
     private int partidoId;

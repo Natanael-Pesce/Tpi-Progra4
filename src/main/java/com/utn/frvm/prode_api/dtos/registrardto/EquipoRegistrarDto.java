@@ -5,7 +5,7 @@ import lombok.Data;
 
 @Data
 public class EquipoRegistrarDto {
-    
+
     @NotBlank(message = "El equipo debe de tener un nombre")
     private String nombreEquipo;
 }

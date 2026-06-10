@@ -1,11 +1,11 @@
 package com.utn.frvm.prode_api.mapper;
 
-import com.utn.frvm.prode_api.dtos.responcedto.MiemborGrupoResponceDto;
+import com.utn.frvm.prode_api.dtos.responsedto.MiembroGrupoResponseDto;
 import com.utn.frvm.prode_api.models.MiembroGrupo;
 
 public class MiembroMapper {
     
-    public static MiembroGrupo toEntity(MiemborGrupoResponceDto dto){
+    public static MiembroGrupo toEntity(MiembroGrupoResponseDto dto){
 
         MiembroGrupo miembroGrupo = new MiembroGrupo();
 
@@ -17,8 +17,8 @@ public class MiembroMapper {
         return miembroGrupo;
     }
 
-    public static MiemborGrupoResponceDto toDto(MiembroGrupo miembroGrupo){
-        MiemborGrupoResponceDto dto = new MiemborGrupoResponceDto();
+    public static MiembroGrupoResponseDto toDto(MiembroGrupo miembroGrupo){
+        MiembroGrupoResponseDto dto = new MiembroGrupoResponseDto();
 
         dto.setIdMiembroGrupo(miembroGrupo.getIdMiembro());
         dto.setUsuario(miembroGrupo.getUsuario());

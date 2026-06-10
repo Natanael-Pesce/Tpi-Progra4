@@ -10,7 +10,7 @@ import com.utn.frvm.prode_api.utility.Resultado;
 import lombok.Data;
 
 @Data
-public class PartidoResponceDto {
+public class PartidoResponseDto {
     
     private Equipo equipoLocal;
     private Equipo equipoVisitante;

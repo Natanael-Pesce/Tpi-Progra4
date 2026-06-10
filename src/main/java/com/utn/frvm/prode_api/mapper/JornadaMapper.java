@@ -1,11 +1,11 @@
 package com.utn.frvm.prode_api.mapper;
 
-import com.utn.frvm.prode_api.dtos.responcedto.JornadaResponceDto;
+import com.utn.frvm.prode_api.dtos.responsedto.JornadaResponseDto;
 import com.utn.frvm.prode_api.models.Jornada;
 
 public class JornadaMapper {
     
-    public static Jornada toEntity(JornadaResponceDto dto){
+    public static Jornada toEntity(JornadaResponseDto dto){
         Jornada jornada = new Jornada();
 
         jornada.setIdJornada(dto.getIdJornada());
@@ -19,8 +19,8 @@ public class JornadaMapper {
         return jornada;
     }
 
-    public static JornadaResponceDto toDto(Jornada jornada){
-        JornadaResponceDto dto = new JornadaResponceDto();
+    public static JornadaResponseDto toDto(Jornada jornada){
+        JornadaResponseDto dto = new JornadaResponseDto();
 
         dto.setIdJornada(jornada.getIdJornada());
         dto.setNombreJornada(jornada.getNombreJornada());

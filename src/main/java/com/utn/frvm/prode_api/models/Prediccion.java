@@ -29,5 +29,5 @@ public class Prediccion {
     private int golesVisitante;
     private Resultado resultadoPronosticado = Resultado.SIN_DEFINIR;
     private int puntosObtenidos;
-    private boolean estaAtivo = true;
+    private boolean estaActivo = true;
 }

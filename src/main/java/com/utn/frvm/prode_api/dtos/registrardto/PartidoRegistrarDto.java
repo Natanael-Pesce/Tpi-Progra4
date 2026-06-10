@@ -13,5 +13,5 @@ public class PartidoRegistrarDto {
     private Equipo equipoLocal;
     private Equipo equipoVisitante;
     private Jornada jornada;
-    private LocalDateTime fechaIncio;
+    private LocalDateTime fechaInicio;
 }

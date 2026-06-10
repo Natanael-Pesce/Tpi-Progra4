@@ -1,11 +1,11 @@
 package com.utn.frvm.prode_api.mapper;
 
-import com.utn.frvm.prode_api.dtos.responcedto.UsuarioResponceDto;
+import com.utn.frvm.prode_api.dtos.responsedto.UsuarioResponseDto;
 import com.utn.frvm.prode_api.models.Usuario;
 
 public class UsuarioMapper {
 
-    public static Usuario toEntity(UsuarioResponceDto dto){
+    public static Usuario toEntity(UsuarioResponseDto dto){
         Usuario usuario = new Usuario();
 
         usuario.setNombre(dto.getNombre());
@@ -16,9 +16,9 @@ public class UsuarioMapper {
         return usuario;
     }
 
-    public static UsuarioResponceDto toDto(Usuario usuario){
+    public static UsuarioResponseDto toDto(Usuario usuario){
 
-        UsuarioResponceDto dto = new UsuarioResponceDto();
+        UsuarioResponseDto dto = new UsuarioResponseDto();
 
         dto.setIdUsuario(usuario.getIdUsuario());
         dto.setNombre(usuario.getNombre());

@@ -8,7 +8,7 @@ import com.utn.frvm.prode_api.models.Usuario;
 import lombok.Data;
 
 @Data
-public class MiembroGrupoUdateDto {
+public class MiembroGrupoUpdateDto {
     
     private Usuario usuario;
     private Grupo grupo;

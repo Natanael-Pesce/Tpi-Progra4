@@ -10,8 +10,8 @@ public class MiembroMapper {
         MiembroGrupo miembroGrupo = new MiembroGrupo();
 
         miembroGrupo.setIdMiembro(dto.getIdMiembroGrupo());
-        miembroGrupo.setUsuario(dto.getUsuario());
-        miembroGrupo.setGrupo(dto.getGrupo());
+        miembroGrupo.setIdUsuario(dto.getIdUsuario());
+        miembroGrupo.setIdGrupo(dto.getIdGrupo());
         miembroGrupo.setFechaIngreso(dto.getFechaIngreso());
 
         return miembroGrupo;
@@ -21,8 +21,8 @@ public class MiembroMapper {
         MiemborGrupoResponceDto dto = new MiemborGrupoResponceDto();
 
         dto.setIdMiembroGrupo(miembroGrupo.getIdMiembro());
-        dto.setUsuario(miembroGrupo.getUsuario());
-        dto.setGrupo(miembroGrupo.getGrupo());
+        dto.setIdUsuario(miembroGrupo.getIdUsuario());
+        dto.setIdGrupo(miembroGrupo.getIdGrupo());
         dto.setFechaIngreso(miembroGrupo.getFechaIngreso());
         
         return dto;

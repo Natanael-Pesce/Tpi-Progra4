@@ -8,12 +8,12 @@ public class PartidoMapper {
     public static Partido toEntity(PartidoResponceDto dto){
         Partido partido = new Partido();
 
-        partido.setEquipoLocal(dto.getEquipoLocal());
-        partido.setEquipoVisitante(dto.getEquipoVisitante());
+        partido.setIdEquipoLocal(dto.getIdEquipoLocal());
+        partido.setIdEquipoVisitante(dto.getIdEquipoVisitante());
         partido.setEstadoPartido(dto.getEstadoPartido());
         partido.setGolesLocal(dto.getGolesLocal());
         partido.setGolesVisitante(dto.getGolesVisitante());
-        partido.setJornada(dto.getJornada());
+        partido.setIdJornada(dto.getIdJornada());
         partido.setHoraInicio(dto.getHoraInicio());
         partido.setResultado(dto.getResultado());
 
@@ -24,13 +24,13 @@ public class PartidoMapper {
         PartidoResponceDto dto = new PartidoResponceDto();
 
         dto.setIdPartido(partido.getIdPartido());
-        dto.setEquipoLocal(partido.getEquipoLocal());
-        dto.setEquipoVisitante(partido.getEquipoVisitante());
+        dto.setIdEquipoLocal(partido.getIdEquipoLocal());
+        dto.setIdEquipoVisitante(partido.getIdEquipoVisitante());
         dto.setEstadoPartido(partido.getEstadoPartido());
         dto.setGolesLocal(partido.getGolesLocal());
         dto.setGolesVisitante(partido.getGolesVisitante());
         dto.setHoraInicio(partido.getHoraInicio());
-        dto.setJornada(partido.getJornada());
+        dto.setIdJornada(partido.getIdJornada());
         dto.setResultado(partido.getResultado());
 
         return dto;

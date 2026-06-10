@@ -1,6 +1,6 @@
 package com.utn.frvm.prode_api.dtos.registrardto;
 
-import java.sql.Date;
+import java.time.LocalDateTime;
 import jakarta.validation.constraints.NotBlank;
 import lombok.Data;
 
@@ -11,8 +11,8 @@ public class JornadaRegistrarDto {
     private String nombreJornada;
 
     @NotBlank(message = "La jornada debe de tener una fecha de inicio")
-    private Date fechaInicio;
+    private LocalDateTime fechaInicio;
 
     @NotBlank(message = "La jornada debe de tener una fecha de terminacion")
-    private Date fechaFin;
+    private LocalDateTime fechaFin;
 }

@@ -21,8 +21,8 @@ public class Grupo {
     private int idGrupo;
 
     private String nombreGrupo;
-    private Usuario creadorGrupo;
-    private List<MiembroGrupo> miembros;
+    private int idCreadorGrupo;
+    private List<Integer> idMiembros;
     private String codigoInvitacion;
     private boolean estaActivo = true;
 }

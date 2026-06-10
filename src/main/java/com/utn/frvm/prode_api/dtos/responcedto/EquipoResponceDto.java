@@ -6,7 +6,6 @@ import lombok.Data;
 public class EquipoResponceDto {
     
     private int idEquipo;
-
     private String nombreEquipo;
     private boolean estaActivo;
 }

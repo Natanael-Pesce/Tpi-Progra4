@@ -21,7 +21,7 @@ public class Jornada {
     private String nombreJornada;
     private LocalDateTime fechaInicio;
     private LocalDateTime fechaFin;
-    private List<Partido> partidos;
+    private List<Integer> partidosids;
     private EstadoJornada estadoJornada = EstadoJornada.PROGRAMADA;
     private boolean estaActivo = true;
 }

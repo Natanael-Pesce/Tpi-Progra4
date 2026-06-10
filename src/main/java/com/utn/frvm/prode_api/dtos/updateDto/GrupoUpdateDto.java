@@ -1,4 +1,4 @@
-package com.utn.frvm.prode_api.dtos.updateDto;
+package com.utn.frvm.prode_api.dtos.updatedto;
 
 import lombok.Data;
 

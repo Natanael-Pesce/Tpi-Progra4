@@ -20,7 +20,7 @@ public class MiembroGrupo {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int idMiembro;
 
-    private Usuario usuario;
-    private Grupo grupo;
+    private int idUsuario;
+    private int idGrupo;
     private LocalDateTime fechaIngreso;
 }

@@ -13,7 +13,7 @@ public class JornadaMapper {
         jornada.setFechaInicio(dto.getFechaInicio());
         jornada.setFechaFin(dto.getFechaFin());
         jornada.setEstadoJornada(dto.getEstadoJornada());
-        jornada.setPartidos(dto.getPartidos());
+        jornada.setPartidosids(dto.getIdPartidos());
         jornada.setEstaActivo(dto.isEstaActivo());
         
         return jornada;
@@ -27,7 +27,7 @@ public class JornadaMapper {
         dto.setFechaInicio(jornada.getFechaInicio());
         dto.setFechaFin(jornada.getFechaFin());
         dto.setEstadoJornada(jornada.getEstadoJornada());
-        dto.setPartidos(jornada.getPartidos());
+        dto.setIdPartidos(jornada.getPartidosids());
         dto.setEstaActivo(jornada.isEstaActivo());
 
         return dto;

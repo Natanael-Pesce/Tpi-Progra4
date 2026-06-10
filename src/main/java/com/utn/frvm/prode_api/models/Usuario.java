@@ -2,6 +2,7 @@ package com.utn.frvm.prode_api.models;
 
 import com.utn.frvm.prode_api.utility.Rol;
 
+import java.util.List;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
@@ -28,7 +29,7 @@ public class Usuario {
     private String correo;
 
     private String contraseña;
-    //private List<Prediccion> predicciones;
+    private List<Integer> idPredicciones;
     private int puntos;
     private Rol rol = Rol.USUARIO;
 }

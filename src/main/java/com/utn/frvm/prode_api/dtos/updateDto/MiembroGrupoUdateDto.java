@@ -1,16 +1,12 @@
-package com.utn.frvm.prode_api.dtos.updateDto;
+package com.utn.frvm.prode_api.dtos.updatedto;
 
 import java.time.LocalDate;
-
-import com.utn.frvm.prode_api.models.Grupo;
-import com.utn.frvm.prode_api.models.Usuario;
-
 import lombok.Data;
 
 @Data
 public class MiembroGrupoUdateDto {
     
-    private Usuario usuario;
-    private Grupo grupo;
+    private int idUsuario;
+    private int idGrupo;
     private LocalDate fechaIngreso;
 }

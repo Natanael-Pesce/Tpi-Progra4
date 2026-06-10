@@ -11,8 +11,8 @@ public class GrupoMapper {
 
         grupo.setIdGrupo(dto.getIdGrupo());
         grupo.setNombreGrupo(dto.getNombreGrupo());
-        grupo.setCreadorGrupo(dto.getCreadorGrupo());
-        grupo.setMiembros(dto.getMiembros());
+        grupo.setIdCreadorGrupo(dto.getIdcreadorGrupo());
+        grupo.setIdMiembros(dto.getIdsMiembros());
 
         return grupo;
     }
@@ -23,8 +23,8 @@ public class GrupoMapper {
 
         dto.setIdGrupo(grupo.getIdGrupo());
         dto.setNombreGrupo(grupo.getNombreGrupo());
-        dto.setCreadorGrupo(grupo.getCreadorGrupo());
-        dto.setMiembros(grupo.getMiembros());
+        dto.setIdcreadorGrupo(grupo.getIdCreadorGrupo());
+        dto.setIdsMiembros(grupo.getIdMiembros());
         
         return dto;
     }

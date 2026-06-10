@@ -2,6 +2,7 @@ package com.utn.frvm.prode_api.dtos.responcedto;
 
 import com.utn.frvm.prode_api.utility.Rol;
 import jakarta.validation.constraints.Email;
+import java.util.List;
 import lombok.Data;
 
 @Data
@@ -13,7 +14,7 @@ public class UsuarioResponceDto {
 
     @Email
     private String correo;
-    //private List<Prediccion> predicciones;
+    private List<Integer> idPredicciones;
     private int puntos;
     private Rol rol;
 }

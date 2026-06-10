@@ -1,9 +1,7 @@
 package com.utn.frvm.prode_api.dtos.responcedto;
 
 import java.time.LocalDateTime;
-
 import com.utn.frvm.prode_api.utility.Resultado;
-
 import lombok.Data;
 
 @Data

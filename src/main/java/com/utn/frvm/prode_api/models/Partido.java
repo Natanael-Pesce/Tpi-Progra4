@@ -23,12 +23,12 @@ public class Partido {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int idPartido;
 
-    private Equipo equipoLocal;
-    private Equipo equipoVisitante;
+    private int idEquipoLocal;
+    private int idEquipoVisitante;
     private int golesLocal;
     private int golesVisitante;
     private EstadoPartido estadoPartido = EstadoPartido.PROGRAMADO;
-    private Jornada jornada;
+    private int idJornada;
     private LocalDateTime horaInicio;
     private Resultado resultado = Resultado.SIN_DEFINIR;
     private boolean estaActivo = true;

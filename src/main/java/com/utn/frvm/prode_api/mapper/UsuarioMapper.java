@@ -1,11 +1,12 @@
 package com.utn.frvm.prode_api.mapper;
 
+import com.utn.frvm.prode_api.dtos.registrardto.UsuarioRegistrarDto;
 import com.utn.frvm.prode_api.dtos.responsedto.UsuarioResponseDto;
 import com.utn.frvm.prode_api.models.Usuario;
 
 public class UsuarioMapper {
 
-    public static Usuario toEntity(UsuarioResponseDto dto){
+    public static Usuario toEntity(UsuarioRegistrarDto dto){
         Usuario usuario = new Usuario();
 
         usuario.setNombre(dto.getNombre());

@@ -24,9 +24,12 @@ public class Jornada {
     private String nombreJornada;
     private LocalDateTime fechaInicio;
     private LocalDateTime fechaFin;
+
     @OneToMany(mappedBy = "jornada")
     private List<Partido> partidos;
+
     @Enumerated(EnumType.STRING)
     private EstadoJornada estadoJornada = EstadoJornada.PROGRAMADA;
+    
     private boolean estaActivo = true;
 }

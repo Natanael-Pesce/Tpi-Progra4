@@ -1,4 +1,4 @@
-package com.utn.frvm.prode_api.dtos.updateDto;
+package com.utn.frvm.prode_api.dtos.updatedto;
 
 import java.time.LocalDateTime;
 
@@ -8,6 +8,7 @@ import lombok.Data;
 
 @Data
 public class PrediccionUpdateDto {
+    
     private int usuarioId;
     private int partidoId;
     private LocalDateTime fechaCreacion;

@@ -1,18 +1,17 @@
 package com.utn.frvm.prode_api.mapper;
 
+import com.utn.frvm.prode_api.dtos.registrardto.GrupoRegistrarDto;
 import com.utn.frvm.prode_api.dtos.responsedto.GrupoResponseDto;
 import com.utn.frvm.prode_api.models.Grupo;
 
 public class GrupoMapper {
     
-    public static Grupo toEntity(GrupoResponseDto dto){
+    public static Grupo toEntity(GrupoRegistrarDto dto){
 
         Grupo grupo = new Grupo();
 
-        grupo.setIdGrupo(dto.getIdGrupo());
         grupo.setNombreGrupo(dto.getNombreGrupo());
         grupo.setCreadorGrupo(dto.getCreadorGrupo());
-        grupo.setMiembros(dto.getMiembros());
 
         return grupo;
     }

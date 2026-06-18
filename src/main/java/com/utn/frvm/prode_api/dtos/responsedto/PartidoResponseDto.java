@@ -11,6 +11,7 @@ import lombok.Data;
 
 @Data
 public class PartidoResponseDto {
+    
     private int idPartido;
     private Equipo equipoLocal;
     private Equipo equipoVisitante;

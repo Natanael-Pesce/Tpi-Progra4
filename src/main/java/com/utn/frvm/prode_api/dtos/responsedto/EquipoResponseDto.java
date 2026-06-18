@@ -4,6 +4,7 @@ import lombok.Data;
 
 @Data
 public class EquipoResponseDto {
+    
     private int idEquipo;
     private String nombreEquipo;
     private boolean estaActivo;

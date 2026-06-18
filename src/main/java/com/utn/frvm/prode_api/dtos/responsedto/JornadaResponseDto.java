@@ -10,6 +10,7 @@ import lombok.Data;
 
 @Data
 public class JornadaResponseDto {
+    
     private int idJornada;
     private String nombreJornada;
     private LocalDateTime fechaInicio;

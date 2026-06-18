@@ -1,21 +1,19 @@
 package com.utn.frvm.prode_api.mapper;
 
+import com.utn.frvm.prode_api.dtos.registrardto.PartidoRegistrarDto;
 import com.utn.frvm.prode_api.dtos.responsedto.PartidoResponseDto;
 import com.utn.frvm.prode_api.models.Partido;
 
 public class PartidoMapper {
     
-    public static Partido toEntity(PartidoResponseDto dto){
+    public static Partido toEntity(PartidoRegistrarDto dto){
         Partido partido = new Partido();
 
         partido.setEquipoLocal(dto.getEquipoLocal());
         partido.setEquipoVisitante(dto.getEquipoVisitante());
         partido.setEstadoPartido(dto.getEstadoPartido());
-        partido.setGolesLocal(dto.getGolesLocal());
-        partido.setGolesVisitante(dto.getGolesVisitante());
         partido.setJornada(dto.getJornada());
-        partido.setHoraInicio(dto.getHoraInicio());
-        partido.setResultado(dto.getResultado());
+        partido.setHoraInicio(dto.getFechaInicio());
 
         return partido;
     }

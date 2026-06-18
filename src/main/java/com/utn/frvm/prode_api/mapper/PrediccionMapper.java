@@ -1,21 +1,19 @@
 package com.utn.frvm.prode_api.mapper;
 
+import com.utn.frvm.prode_api.dtos.registrardto.PrediccionRegistrarDto;
 import com.utn.frvm.prode_api.dtos.responsedto.PrediccionResponseDto;
 import com.utn.frvm.prode_api.models.Prediccion;
 
 public class PrediccionMapper {
     
-    public static Prediccion toEntity(PrediccionResponseDto dto){
+    public static Prediccion toEntity(PrediccionRegistrarDto dto){
         Prediccion prediccion = new Prediccion();
 
-        prediccion.setIdPrediccion(dto.getIdPrediccion());
         prediccion.setUsuarioId(dto.getUsuarioId());
         prediccion.setPartidoId(dto.getPartidoId());
         prediccion.setGolesLocal(dto.getGolesLocal());
         prediccion.setGolesVisitante(dto.getGolesVisitante());
-        prediccion.setResultadoPronosticado(dto.getResultadoPronosticado());
         prediccion.setFechaCreacion(dto.getFechaCreacion());
-        prediccion.setResultadoPronosticado(dto.getResultadoPronosticado());
 
         return prediccion;
     }

@@ -12,6 +12,7 @@ public class EquipoMapper {
 
         equipo.setNombreEquipo(dto.getNombreEquipo());
         equipo.setEstaActivo(true);
+
         return equipo;
     }
 
@@ -21,6 +22,7 @@ public class EquipoMapper {
         dto.setIdEquipo(equipo.getIdEquipo());
         dto.setNombreEquipo(equipo.getNombreEquipo());
         dto.setEstaActivo(equipo.isEstaActivo());
+        
         return dto;
     }
 }

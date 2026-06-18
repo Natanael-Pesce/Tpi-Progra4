@@ -1,22 +1,24 @@
-package com.utn.frvm.prode_api.dtos.responsedto;
+package com.utn.frvm.prode_api.dtos.registrardto;
 
 import java.time.LocalDateTime;
 
 import com.utn.frvm.prode_api.models.Partido;
 import com.utn.frvm.prode_api.models.Usuario;
-import com.utn.frvm.prode_api.utility.Resultado;
 
+import jakarta.validation.constraints.PositiveOrZero;
 import lombok.Data;
 
 @Data
-public class PrediccionResponseDto {
+public class PrediccionRegistrarDto {
     
-    private int idPrediccion;
     private Usuario usuarioId;
     private Partido partidoId;
     private LocalDateTime fechaCreacion;
+
+    @PositiveOrZero(message = "El equipo local debe de tener goles en positivo")
     private int golesLocal;
+
+    @PositiveOrZero(message = "El El equipo visitante debe de tener goles en positivo")
     private int golesVisitante;
-    private Resultado resultadoPronosticado = Resultado.SIN_DEFINIR;
-    private int puntosObtenidos;
+
 }

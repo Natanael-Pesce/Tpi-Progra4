@@ -11,24 +11,29 @@ import java.util.List;
 
 @Service
 public class EquipoService {
+
     private final EquipoRepository equipoRepository;
-    public EquipoService(EquipoRepository equipoRepository) {
-        this.equipoRepository = equipoRepository;
-    }
-public List<EquipoResponseDto> listarEquipos() {
-        return equipoRepository.findAll()
-                .stream()
-                .map(EquipoMapper::toDto)
-                .toList();
-}
-public EquipoResponseDto buscarPorId(Integer id) {
-        Equipo equipo = equipoRepository.findById(id)
-                .orElseThrow(() -> new RuntimeException("Equipo no encontrado"));
-        return EquipoMapper.toDto(equipo);
-}
-public EquipoResponseDto crear(EquipoRegistrarDto dto){
-        Equipo equipo = EquipoMapper.toEntity(dto);
-        Equipo guardado = equipoRepository.save(equipo);
-        return  EquipoMapper.toDto(guardado);
-}
+    
+        public EquipoService(EquipoRepository equipoRepository) {
+                this.equipoRepository = equipoRepository;
+        }
+
+        public List<EquipoResponseDto> listarEquipos() {
+                return equipoRepository.findAll()
+                        .stream()
+                        .map(EquipoMapper::toDto)
+                        .toList();
+        }
+
+        public EquipoResponseDto buscarPorId(Integer id) {
+                Equipo equipo = equipoRepository.findById(id)
+                        .orElseThrow(() -> new RuntimeException("Equipo no encontrado"));
+                return EquipoMapper.toDto(equipo);
+        }
+
+        public EquipoResponseDto crear(EquipoRegistrarDto dto){
+                Equipo equipo = EquipoMapper.toEntity(dto);
+                Equipo guardado = equipoRepository.save(equipo);
+                return  EquipoMapper.toDto(guardado);
+        }
 }

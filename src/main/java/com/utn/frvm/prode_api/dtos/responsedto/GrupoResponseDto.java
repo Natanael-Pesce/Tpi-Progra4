@@ -1,4 +1,4 @@
-package com.utn.frvm.prode_api.dtos.responcedto;
+package com.utn.frvm.prode_api.dtos.responsedto;
 
 import java.util.List;
 
@@ -8,7 +8,7 @@ import com.utn.frvm.prode_api.models.Usuario;
 import lombok.Data;
 
 @Data
-public class GrupoResponceDto {
+public class GrupoResponseDto {
     
     private int idGrupo;
     private String nombreGrupo;

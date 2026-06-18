@@ -1,4 +1,4 @@
-package com.utn.frvm.prode_api.repostories;
+package com.utn.frvm.prode_api.repositories;
 
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
@@ -14,6 +14,6 @@ public interface UsuarioRepository extends JpaRepository<Usuario, Integer> {
 
     Optional<Usuario> findByCorreo(String correo);
 
-    boolean existByCorreo(String correo);
+    boolean existsByCorreo(String correo);
 
 }

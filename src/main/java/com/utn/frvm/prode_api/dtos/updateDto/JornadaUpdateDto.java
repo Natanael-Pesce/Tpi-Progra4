@@ -1,4 +1,4 @@
-package com.utn.frvm.prode_api.dtos.updateDto;
+package com.utn.frvm.prode_api.dtos.updatedto;
 
 import java.time.LocalDateTime;
 import java.util.List;
@@ -10,6 +10,7 @@ import lombok.Data;
 
 @Data
 public class JornadaUpdateDto {
+    
     private String nombreJornada;
     private LocalDateTime fechaInicio;
     private LocalDateTime fechaFin;

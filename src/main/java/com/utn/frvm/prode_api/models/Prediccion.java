@@ -8,6 +8,7 @@ import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
+import jakarta.persistence.OneToOne;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
@@ -22,12 +23,16 @@ public class Prediccion {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int idPrediccion;
 
-    private int usuarioId;
-    private int partidoId;
+    @OneToOne //Revisar
+    private Usuario usuarioId;
+
+    @OneToOne //Revisar
+    private Partido partidoId;
+    
     private LocalDateTime fechaCreacion;
     private int golesLocal;
     private int golesVisitante;
-    private Resultado resultadoPronosticado = Resultado.SIN_DEFINIR;
+    private Resultado resultadoPronosticado;
     private int puntosObtenidos;
-    private boolean estaAtivo = true;
+    private boolean estaActivo = true;
 }

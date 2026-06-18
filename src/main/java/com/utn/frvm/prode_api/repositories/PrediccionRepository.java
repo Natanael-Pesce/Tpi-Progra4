@@ -1,4 +1,4 @@
-package com.utn.frvm.prode_api.repostories;
+package com.utn.frvm.prode_api.repositories;
 
 import java.util.Optional;
 

@@ -1,4 +1,4 @@
-package com.utn.frvm.prode_api.dtos.responcedto;
+package com.utn.frvm.prode_api.dtos.responsedto;
 
 import com.utn.frvm.prode_api.models.Grupo;
 import com.utn.frvm.prode_api.models.Usuario;
@@ -8,7 +8,7 @@ import java.time.LocalDateTime;
 import lombok.Data;
 
 @Data
-public class MiemborGrupoResponceDto {
+public class MiembroGrupoResponseDto {
 
     private int idMiembroGrupo;
     private Usuario usuario;

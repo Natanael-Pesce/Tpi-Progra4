@@ -4,7 +4,7 @@ import java.time.LocalDate;
 import lombok.Data;
 
 @Data
-public class MiembroGrupoUdateDto {
+public class MiembroGrupoUpdateDto {
     
     private int idUsuario;
     private int idGrupo;

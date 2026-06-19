@@ -1,36 +1,34 @@
 package com.utn.frvm.prode_api.mapper;
 
-import com.utn.frvm.prode_api.dtos.responcedto.PartidoResponceDto;
+import com.utn.frvm.prode_api.dtos.registrardto.PartidoRegistrarDto;
+import com.utn.frvm.prode_api.dtos.responsedto.PartidoResponseDto;
 import com.utn.frvm.prode_api.models.Partido;
 
 public class PartidoMapper {
     
-    public static Partido toEntity(PartidoResponceDto dto){
+    public static Partido toEntity(PartidoRegistrarDto dto){
         Partido partido = new Partido();
 
-        partido.setIdEquipoLocal(dto.getIdEquipoLocal());
-        partido.setIdEquipoVisitante(dto.getIdEquipoVisitante());
+        partido.setEquipoLocal(dto.getEquipoLocal());
+        partido.setEquipoVisitante(dto.getEquipoVisitante());
         partido.setEstadoPartido(dto.getEstadoPartido());
-        partido.setGolesLocal(dto.getGolesLocal());
-        partido.setGolesVisitante(dto.getGolesVisitante());
-        partido.setIdJornada(dto.getIdJornada());
-        partido.setHoraInicio(dto.getHoraInicio());
-        partido.setResultado(dto.getResultado());
+        partido.setJornada(dto.getJornada());
+        partido.setHoraInicio(dto.getFechaInicio());
 
         return partido;
     }
 
-    public static PartidoResponceDto toDto(Partido partido){
-        PartidoResponceDto dto = new PartidoResponceDto();
+    public static PartidoResponseDto toDto(Partido partido){
+        PartidoResponseDto dto = new PartidoResponseDto();
 
         dto.setIdPartido(partido.getIdPartido());
-        dto.setIdEquipoLocal(partido.getIdEquipoLocal());
-        dto.setIdEquipoVisitante(partido.getIdEquipoVisitante());
+        dto.setEquipoLocal(partido.getEquipoLocal());
+        dto.setEquipoVisitante(partido.getEquipoVisitante());
         dto.setEstadoPartido(partido.getEstadoPartido());
         dto.setGolesLocal(partido.getGolesLocal());
         dto.setGolesVisitante(partido.getGolesVisitante());
         dto.setHoraInicio(partido.getHoraInicio());
-        dto.setIdJornada(partido.getIdJornada());
+        dto.setJornada(partido.getJornada());
         dto.setResultado(partido.getResultado());
 
         return dto;

@@ -15,4 +15,6 @@ public class JornadaRegistrarDto {
 
     @NotBlank(message = "La jornada debe de tener una fecha de terminacion")
     private LocalDateTime fechaFin;
+
+    private boolean activo = true;
 }

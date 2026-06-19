@@ -1,20 +1,24 @@
-package com.utn.frvm.prode_api.dtos.updatedto;
+package com.utn.frvm.prode_api.dtos.responsedto;
 
 import java.time.LocalDateTime;
+
+import com.utn.frvm.prode_api.models.Equipo;
+import com.utn.frvm.prode_api.models.Jornada;
 import com.utn.frvm.prode_api.utility.EstadoPartido;
 import com.utn.frvm.prode_api.utility.Resultado;
 
 import lombok.Data;
 
 @Data
-public class PartidoResponceDto {
+public class PartidoResponseDto {
     
-    private int idEquipoLocal;
-    private int idEquipoVisitante;
+    private int idPartido;
+    private Equipo EquipoLocal;
+    private Equipo EquipoVisitante;
     private int golesLocal;
     private int golesVisitante;
     private EstadoPartido estadoPartido;
-    private int idJornada;
+    private Jornada Jornada;
     private LocalDateTime horaInicio;
     private Resultado resultado;
 }

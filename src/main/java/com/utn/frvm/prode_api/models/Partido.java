@@ -1,17 +1,17 @@
 package com.utn.frvm.prode_api.models;
 
 import java.time.LocalDateTime;
+import java.util.List;
 
 import com.utn.frvm.prode_api.utility.EstadoPartido;
 import com.utn.frvm.prode_api.utility.Resultado;
 
-import jakarta.persistence.Entity;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.GenerationType;
-import jakarta.persistence.Id;
+import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
+import jakarta.persistence.ManyToOne;
+import jakarta.persistence.JoinColumn;
 
 @Entity
 @Data
@@ -23,13 +23,31 @@ public class Partido {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int idPartido;
 
-    private int idEquipoLocal;
-    private int idEquipoVisitante;
+    @ManyToOne
+    @JoinColumn(name = "id_equipo_local")
+    private Equipo equipoLocal;
+
+    @ManyToOne
+    @JoinColumn(name = "id_equipo_visitante")
+    private Equipo equipoVisitante;
+
     private int golesLocal;
     private int golesVisitante;
+
+    @Enumerated(EnumType.STRING)
     private EstadoPartido estadoPartido = EstadoPartido.PROGRAMADO;
-    private int idJornada;
+
+    @ManyToOne
+    @JoinColumn(name = "id_jornada")
+    private Jornada jornada;
+
     private LocalDateTime horaInicio;
+
+    @Enumerated(EnumType.STRING)
     private Resultado resultado = Resultado.SIN_DEFINIR;
+
+    @ManyToOne //Revisar
+    private List<Prediccion> predicciones;
+    
     private boolean estaActivo = true;
 }

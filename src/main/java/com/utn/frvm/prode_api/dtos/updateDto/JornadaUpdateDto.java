@@ -9,6 +9,7 @@ import lombok.Data;
 
 @Data
 public class JornadaUpdateDto {
+    
     private String nombreJornada;
     private LocalDateTime fechaInicio;
     private LocalDateTime fechaFin;

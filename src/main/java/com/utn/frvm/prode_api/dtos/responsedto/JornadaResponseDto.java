@@ -1,18 +1,19 @@
-package com.utn.frvm.prode_api.dtos.responcedto;
+package com.utn.frvm.prode_api.dtos.responsedto;
 
 import java.time.LocalDateTime;
 import java.util.List;
 import com.utn.frvm.prode_api.utility.EstadoJornada;
+import com.utn.frvm.prode_api.models.Partido;
 import lombok.Data;
 
 @Data
-public class JornadaResponceDto {
-
+public class JornadaResponseDto {
+    
     private int idJornada;
     private String nombreJornada;
     private LocalDateTime fechaInicio;
     private LocalDateTime fechaFin;
-    private List<Integer> idPartidos;
+    private List<Partido> Partidos;
     private EstadoJornada estadoJornada;
     private boolean estaActivo;
 }

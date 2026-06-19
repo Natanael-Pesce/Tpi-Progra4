@@ -6,6 +6,7 @@ import lombok.Data;
 
 @Data
 public class PrediccionUpdateDto {
+    
     private int usuarioId;
     private int partidoId;
     private LocalDateTime fechaCreacion;

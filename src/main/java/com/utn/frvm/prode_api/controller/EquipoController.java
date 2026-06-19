@@ -10,7 +10,6 @@ import java.util.List;
 @RestController
 @RequestMapping("/api/equipos")
 public class EquipoController {
-
     
     private final EquipoService equipoService;
     

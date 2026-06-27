@@ -1,30 +1,36 @@
 package com.utn.frvm.prode_api.mapper;
 
-import com.utn.frvm.prode_api.dtos.registrardto.GrupoRegistrarDto;
-import com.utn.frvm.prode_api.dtos.responsedto.GrupoResponseDto;
+import com.utn.frvm.prode_api.dtos.responsedto.GrupoResponse;
 import com.utn.frvm.prode_api.models.Grupo;
+import com.utn.frvm.prode_api.models.MiembroGrupo;
+
+import java.util.List;
 
 public class GrupoMapper {
-    
-    public static Grupo toEntity(GrupoRegistrarDto dto){
 
-        Grupo grupo = new Grupo();
-
-        grupo.setNombreGrupo(dto.getNombreGrupo());
-        grupo.setCreadorGrupo(dto.getCreadorGrupo());
-
-        return grupo;
+    private GrupoMapper() {
     }
 
-    public static GrupoResponseDto toDto(Grupo grupo){
+    public static GrupoResponse toResponse(Grupo grupo) {
+        List<GrupoResponse.MiembroResponse> miembros = grupo.getMiembros().stream()
+                .map(GrupoMapper::toMiembroResponse)
+                .toList();
 
-        GrupoResponseDto dto = new GrupoResponseDto();
+        return new GrupoResponse(
+                grupo.getIdGrupo(),
+                grupo.getNombre(),
+                grupo.getDescripcion(),
+                UsuarioMapper.toResponse(grupo.getCreador()),
+                grupo.getCodigoInvitacion(),
+                miembros.size(),
+                miembros);
+    }
 
-        dto.setIdGrupo(grupo.getIdGrupo());
-        dto.setNombreGrupo(grupo.getNombreGrupo());
-        dto.setCreadorGrupo(grupo.getCreadorGrupo());
-        dto.setMiembros(grupo.getMiembros());
-        
-        return dto;
+    private static GrupoResponse.MiembroResponse toMiembroResponse(MiembroGrupo miembro) {
+        return new GrupoResponse.MiembroResponse(
+                miembro.getUsuario().getIdUsuario(),
+                miembro.getUsuario().getNombre() + " " + miembro.getUsuario().getApellido(),
+                miembro.getUsuario().getPuntos());
     }
 }
+

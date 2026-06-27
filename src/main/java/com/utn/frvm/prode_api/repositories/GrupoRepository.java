@@ -6,8 +6,10 @@ import org.springframework.stereotype.Repository;
 import com.utn.frvm.prode_api.models.Grupo;
 
 @Repository
-public interface GrupoRepository extends JpaRepository<Grupo, Integer> {
+public interface GrupoRepository extends JpaRepository<Grupo, Long> {
 
-    Optional<Grupo> findById(int idGrupo);
+    Optional<Grupo> findByCodigoInvitacion(String codigoInvitacion);
+
+    boolean existsByCodigoInvitacion(String codigoInvitacion);
     
 }

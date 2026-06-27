@@ -1,37 +1,52 @@
 package com.utn.frvm.prode_api.models;
 
+import java.util.ArrayList;
 import java.util.List;
-
-import jakarta.persistence.Entity;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.GenerationType;
-import jakarta.persistence.Id;
-import jakarta.persistence.JoinColumn;
-import jakarta.persistence.ManyToOne;
-import jakarta.persistence.OneToMany;
+import com.fasterxml.jackson.annotation.JsonIgnore;
+import java.util.UUID;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
+import jakarta.persistence.*;
+import lombok.Builder;
+import lombok.EqualsAndHashCode;
 
 @Entity
+@Table(name = "grupos")
 @Data
-@AllArgsConstructor
+@Builder
 @NoArgsConstructor
+@AllArgsConstructor
+@EqualsAndHashCode(of = "idGrupo")
 public class Grupo {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private int idGrupo;
+    private Long idGrupo;
 
-    private String nombreGrupo;
+    @Column(nullable = false)
+    private String nombre;
 
-    @ManyToOne
-    @JoinColumn(name = "id_creador_grupo")
-    private Usuario creadorGrupo;
+    @Column
+    private String descripcion;
 
-    @OneToMany(mappedBy = "grupo")
-    private List<MiembroGrupo> miembros;
+    @ManyToOne(fetch = FetchType.EAGER)
+    @JoinColumn(name = "creador_id", nullable = false)
+    private Usuario creador;
 
+    @Column(nullable = false, unique = true)
     private String codigoInvitacion;
-    private boolean estaActivo = true;
+
+    @OneToMany(mappedBy = "grupo", cascade = CascadeType.ALL, orphanRemoval = true)
+    @Builder.Default
+    @JsonIgnore
+    private List<MiembroGrupo> miembros = new ArrayList<>();
+
+    /** Genera un código de invitación único de 8 caracteres */
+    public void generarCodigo() {
+        this.codigoInvitacion = UUID.randomUUID().toString()
+                                    .replace("-", "")
+                                    .substring(0, 8)
+                                    .toUpperCase();
+    }
 }

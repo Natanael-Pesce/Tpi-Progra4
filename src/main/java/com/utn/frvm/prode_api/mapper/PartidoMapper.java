@@ -1,36 +1,26 @@
 package com.utn.frvm.prode_api.mapper;
 
-import com.utn.frvm.prode_api.dtos.registrardto.PartidoRegistrarDto;
-import com.utn.frvm.prode_api.dtos.responsedto.PartidoResponseDto;
+import com.utn.frvm.prode_api.dtos.responsedto.PartidoResponse;
 import com.utn.frvm.prode_api.models.Partido;
 
 public class PartidoMapper {
-    
-    public static Partido toEntity(PartidoRegistrarDto dto){
-        Partido partido = new Partido();
 
-        partido.setEquipoLocal(dto.getEquipoLocal());
-        partido.setEquipoVisitante(dto.getEquipoVisitante());
-        partido.setEstadoPartido(dto.getEstadoPartido());
-        partido.setJornada(dto.getJornada());
-        partido.setHoraInicio(dto.getFechaInicio());
-
-        return partido;
+    private PartidoMapper() {
     }
 
-    public static PartidoResponseDto toDto(Partido partido){
-        PartidoResponseDto dto = new PartidoResponseDto();
-
-        dto.setIdPartido(partido.getIdPartido());
-        dto.setEquipoLocal(partido.getEquipoLocal());
-        dto.setEquipoVisitante(partido.getEquipoVisitante());
-        dto.setEstadoPartido(partido.getEstadoPartido());
-        dto.setGolesLocal(partido.getGolesLocal());
-        dto.setGolesVisitante(partido.getGolesVisitante());
-        dto.setHoraInicio(partido.getHoraInicio());
-        dto.setJornada(partido.getJornada());
-        dto.setResultado(partido.getResultado());
-
-        return dto;
+    public static PartidoResponse toResponse(Partido partido) {
+        return new PartidoResponse(
+                partido.getIdPartido(),
+                EquipoMapper.toResponse(partido.getEquipoLocal()),
+                EquipoMapper.toResponse(partido.getEquipoVisitante()),
+                partido.getHoraInicio(),
+                partido.getCierrePrediccion(),
+                partido.getGolesLocal(),
+                partido.getGolesVisitante(),
+                partido.getEstadoPartido(),
+                partido.getResultadoFinal(),
+                partido.getJornada().getIdJornada(),
+                partido.getJornada().getNombre(),
+                !partido.estaAbiertaParaPredicciones());
     }
 }

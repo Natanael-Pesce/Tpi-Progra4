@@ -1,53 +1,78 @@
 package com.utn.frvm.prode_api.models;
 
 import java.time.LocalDateTime;
-import java.util.List;
-
 import com.utn.frvm.prode_api.utility.EstadoPartido;
 import com.utn.frvm.prode_api.utility.Resultado;
-
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
-import jakarta.persistence.ManyToOne;
-import jakarta.persistence.JoinColumn;
+import lombok.Builder;
+import lombok.EqualsAndHashCode;
 
 @Entity
+@Table(name = "partidos")
 @Data
-@AllArgsConstructor
+@Builder
 @NoArgsConstructor
+@AllArgsConstructor
+@EqualsAndHashCode(of = "idPartido")
 public class Partido {
-    
+
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private int idPartido;
+    private Long idPartido;
 
-    @ManyToOne
-    @JoinColumn(name = "id_equipo_local")
+    @ManyToOne(fetch = FetchType.EAGER)
+    @JoinColumn(name = "equipo_local_id", nullable = false)
     private Equipo equipoLocal;
 
-    @ManyToOne
-    @JoinColumn(name = "id_equipo_visitante")
+    @ManyToOne(fetch = FetchType.EAGER)
+    @JoinColumn(name = "equipo_visitante_id", nullable = false)
     private Equipo equipoVisitante;
 
-    private int golesLocal;
-    private int golesVisitante;
-
-    @Enumerated(EnumType.STRING)
-    private EstadoPartido estadoPartido = EstadoPartido.PROGRAMADO;
-
-    @ManyToOne
-    @JoinColumn(name = "id_jornada")
-    private Jornada jornada;
-
+    @Column(nullable = false)
     private LocalDateTime horaInicio;
 
-    @Enumerated(EnumType.STRING)
-    private Resultado resultado = Resultado.SIN_DEFINIR;
+    @Builder.Default
+    @Column(nullable = false)
+    private Integer golesLocal = 0;
 
-    @ManyToOne //Revisar
-    private List<Prediccion> predicciones;
-    
-    private boolean estaActivo = true;
+    @Builder.Default
+    @Column(nullable = false)
+    private Integer golesVisitante = 0;
+
+    @Enumerated(EnumType.STRING)
+    @Builder.Default
+    @Column(nullable = false)
+    private EstadoPartido estadoPartido = EstadoPartido.PROGRAMADO;
+
+    @Enumerated(EnumType.STRING)
+    private Resultado resultadoFinal;
+
+    @ManyToOne(fetch = FetchType.EAGER)
+    @JoinColumn(name = "jornada_id", nullable = false)
+    private Jornada jornada;
+
+    /** Regla de negocio: cierre de predicciones 30 min antes del inicio */
+    public LocalDateTime getCierrePrediccion() {
+        return horaInicio.minusMinutes(30);
+    }
+
+    /** Verifica si todavía se pueden crear/modificar predicciones */
+    public boolean estaAbiertaParaPredicciones() {
+        return LocalDateTime.now().isBefore(getCierrePrediccion());
+    }
+
+    /** Finaliza el partido y determina el resultado oficial */
+    public void finalizarPartido(int golesLocal, int golesVisitante) {
+        this.golesLocal = golesLocal;
+        this.golesVisitante = golesVisitante;
+        this.estadoPartido = EstadoPartido.FINALIZADO;
+        this.resultadoFinal = Resultado.calcularDesde(golesLocal, golesVisitante);
+    }
+
+    public void iniciarPartido() {
+        this.estadoPartido = EstadoPartido.EN_JUEGO;
+    }
 }

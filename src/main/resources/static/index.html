@@ -1,0 +1,208 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Prode Deportivo</title>
+  <link rel="icon" href="data:,">
+  <link rel="stylesheet" href="/styles.css">
+</head>
+<body>
+  <main id="authView" class="auth-shell">
+    <section class="brand-panel">
+      <div>
+        <p class="eyebrow">TP Integrador Programacion 4</p>
+        <h1>Prode Deportivo</h1>
+        <p class="lead">Pronostica partidos, suma puntos y competi con tus grupos.</p>
+      </div>
+      <div class="sample-users">
+        <p>Usuarios de prueba</p>
+        <span>admin@prode.com / Admin123!</span>
+        <span>juan@prode.com / User123!</span>
+      </div>
+    </section>
+
+    <section class="auth-card">
+      <div class="tabs compact">
+        <button class="tab active" data-auth-tab="login">Ingresar</button>
+        <button class="tab" data-auth-tab="registro">Registrarse</button>
+      </div>
+
+      <form id="loginForm" class="form auth-form">
+        <label>Correo
+          <input name="correo" type="email" value="juan@prode.com" required>
+        </label>
+        <label>Contrasena
+          <input name="contrasena" type="password" value="User123!" required>
+        </label>
+        <button class="primary" type="submit">Entrar</button>
+      </form>
+
+      <form id="registroForm" class="form auth-form hidden">
+        <div class="split">
+          <label>Nombre
+            <input name="nombre" required minlength="2">
+          </label>
+          <label>Apellido
+            <input name="apellido" required minlength="2">
+          </label>
+        </div>
+        <label>Correo
+          <input name="correo" type="email" required>
+        </label>
+        <label>Contrasena
+          <input name="contrasena" type="password" required minlength="8" placeholder="Minimo 8, una mayuscula y un numero">
+        </label>
+        <button class="primary" type="submit">Crear cuenta</button>
+      </form>
+    </section>
+  </main>
+
+  <main id="appView" class="app-shell hidden">
+    <aside class="sidebar">
+      <div class="sidebar-head">
+        <strong>Prode</strong>
+        <span id="userBadge">Jugador</span>
+      </div>
+      <nav class="nav">
+        <button class="active" data-view="dashboard">Inicio</button>
+        <button data-view="partidos">Partidos</button>
+        <button data-view="predicciones">Mis predicciones</button>
+        <button data-view="ranking">Ranking</button>
+        <button data-view="grupos">Grupos</button>
+        <button data-view="resultados">Resultados</button>
+        <button data-view="perfil">Perfil y reglas</button>
+        <button id="adminNav" class="hidden" data-view="admin">Admin</button>
+      </nav>
+      <button id="logoutBtn" class="ghost">Cerrar sesion</button>
+    </aside>
+
+    <section class="content">
+      <header class="topbar">
+        <div>
+          <p class="eyebrow">Sistema de pronosticos</p>
+          <h2 id="pageTitle">Inicio</h2>
+        </div>
+        <button id="refreshBtn" class="secondary">Actualizar</button>
+      </header>
+
+      <div id="alert" class="alert hidden"></div>
+
+      <section id="dashboard" class="view active">
+        <div class="stats-grid">
+          <article class="stat"><span>Puntaje</span><strong id="statPuntos">0</strong></article>
+          <article class="stat"><span>Predicciones</span><strong id="statPredicciones">0</strong></article>
+          <article class="stat"><span>Aciertos</span><strong id="statAciertos">0</strong></article>
+          <article class="stat"><span>Efectividad</span><strong id="statEfectividad">0%</strong></article>
+        </div>
+        <div class="section-head">
+          <h3>Proximos partidos</h3>
+          <button class="secondary small" data-view-shortcut="partidos">Ver todos</button>
+        </div>
+        <div id="homePartidos" class="cards"></div>
+      </section>
+
+      <section id="partidos" class="view">
+        <div class="section-head">
+          <h3>Partidos disponibles</h3>
+          <select id="jornadaFilter"></select>
+        </div>
+        <div id="partidosList" class="match-list"></div>
+      </section>
+
+      <section id="predicciones" class="view">
+        <div class="section-head">
+          <h3>Mis predicciones</h3>
+        </div>
+        <div id="prediccionesList" class="cards"></div>
+      </section>
+
+      <section id="ranking" class="view">
+        <div class="section-head">
+          <h3>Ranking global</h3>
+        </div>
+        <div id="rankingList" class="table-like"></div>
+      </section>
+
+      <section id="grupos" class="view">
+        <div class="two-cols">
+          <form id="crearGrupoForm" class="panel form">
+            <h3>Crear grupo</h3>
+            <label>Nombre <input name="nombre" required maxlength="80"></label>
+            <label>Descripcion <input name="descripcion" maxlength="180"></label>
+            <button class="primary" type="submit">Crear</button>
+          </form>
+          <form id="unirseGrupoForm" class="panel form">
+            <h3>Unirse a grupo</h3>
+            <label>Codigo <input name="codigoInvitacion" required maxlength="8"></label>
+            <button class="primary" type="submit">Unirse</button>
+          </form>
+        </div>
+        <div id="gruposList" class="cards"></div>
+      </section>
+
+      <section id="resultados" class="view">
+        <div class="section-head">
+          <h3>Resultados finalizados</h3>
+        </div>
+        <div id="resultadosList" class="cards"></div>
+      </section>
+
+      <section id="perfil" class="view">
+        <div class="two-cols">
+          <form id="perfilForm" class="panel form">
+            <h3>Mi perfil</h3>
+            <label>Nombre <input name="nombre" required></label>
+            <label>Apellido <input name="apellido" required></label>
+            <label>Correo <input name="correo" type="email" required></label>
+            <button class="primary" type="submit">Guardar</button>
+          </form>
+          <article class="panel">
+            <h3>Reglas</h3>
+            <div id="reglasBox" class="rules"></div>
+          </article>
+        </div>
+      </section>
+
+      <section id="admin" class="view">
+        <div class="two-cols">
+          <form id="equipoForm" class="panel form">
+            <h3>Nuevo equipo</h3>
+            <label>Nombre <input name="nombre" required></label>
+            <button class="primary" type="submit">Crear equipo</button>
+          </form>
+          <form id="jornadaForm" class="panel form">
+            <h3>Nueva jornada</h3>
+            <label>Nombre <input name="nombre" required></label>
+            <div class="split">
+              <label>Desde <input name="fechaInicio" type="date" required></label>
+              <label>Hasta <input name="fechaFin" type="date" required></label>
+            </div>
+            <button class="primary" type="submit">Crear jornada</button>
+          </form>
+        </div>
+        <form id="partidoForm" class="panel form">
+          <h3>Nuevo partido</h3>
+          <div class="admin-grid">
+            <label>Local <select name="equipoLocalId" required></select></label>
+            <label>Visitante <select name="equipoVisitanteId" required></select></label>
+            <label>Jornada <select name="jornadaId" required></select></label>
+            <label>Inicio <input name="horaInicio" type="datetime-local" required></label>
+          </div>
+          <button class="primary" type="submit">Crear partido</button>
+        </form>
+        <div class="section-head">
+          <h3>Finalizar partidos</h3>
+        </div>
+        <div id="adminPartidos" class="match-list"></div>
+      </section>
+    </section>
+  </main>
+
+  <template id="emptyTemplate">
+    <div class="empty">No hay datos para mostrar.</div>
+  </template>
+
+  <script src="/app.js"></script>
+</body>
+</html>
